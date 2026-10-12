@@ -1,0 +1,10 @@
+# Opt-in darkzone-refresh filesystem Skill provider for DeepSeek Harness.
+# Resolves the packaged Skill root from the installed npm identity anchored at
+# the DSH profile (Loader baseUrl), never as a path concatenated onto baseUrl.
+- insert:
+    - id: darkzone-refresh-skill-filesystem
+      name: '@deepseek-ai/dsh-skill-filesystem'
+      config:
+        providerName: darkzone-refresh-plugin
+        includeDefaultRoots: false
+        bundledSkillDir: !!js process.getBuiltinModule('node:path').join(process.getBuiltinModule('node:path').dirname(process.getBuiltinModule('node:module').createRequire(baseUrl).resolve('@iasi/darkzone-refresh-dsh/package.json')), 'skills')

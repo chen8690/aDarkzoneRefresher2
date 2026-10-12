@@ -1,0 +1,12 @@
+# 核心依赖（离线冒烟测试 + 真机跑都必需）
+openpyxl>=3.1
+Pillow>=10
+
+# 可选：更准但慢的 OCR 后端（--ocr rapid 时用，每屏 7–11s，慢约 7×）
+# 走清华源安装：pip install -i https://pypi.tuna.tsinghua.edu.cn/simple rapidocr-onnxruntime==1.4.4
+# rapidocr-onnxruntime==1.4.4
+
+# 其它依赖说明（非 pip 包）：
+#   - Windows 10/11：OCR 走系统自带 Windows.Media.Ocr，无需第三方库
+#   - adb（PATH 或 --serial 指定），真机模式必需
+#   - ffmpeg（可选，视频流取帧提速；找不到自动退 gzip），设 DARKZONE_FFMPEG 或改 darkzone/stream.py 候选

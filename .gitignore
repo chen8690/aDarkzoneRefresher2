@@ -1,0 +1,34 @@
+# ---- Python / 虚拟环境 ----
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# ---- 运行日志与过程截图（每次运行重新生成） ----
+logs/
+logs_test/
+logs_fake/
+*.log
+*.jsonl
+
+# ---- 个人规则表与转储（真实 Excel 在桌面，勿提交） ----
+工作簿1.xlsx
+xlsx_dump.txt
+*.xlsx.bak
+
+# ---- 一次性调试脚本与输出 ----
+*_out.txt
+ocr_test.png
+dump_xlsx.py
+make_ocr_test.py
+win_ocr_test.ps1
+
+# ---- 真机截图（本地保留，不入库；公开仓库不含真实游戏界面） ----
+**/samples/*.png
+**/samples/*.jpg
+**/samples/*.jpeg
+
+# ---- 系统 ----
+Thumbs.db
+desktop.ini
+.DS_Store
