@@ -24,7 +24,7 @@ from darkzone.fake_screens import IMG_H, IMG_W, FakePhone          # noqa: E402
 from darkzone.rules import parse_workbook                          # noqa: E402
 from darkzone.runner import Config, Runner                         # noqa: E402
 
-XLSX = os.environ.get("DARKZONE_RULES") or r"工作簿1.xlsx"
+XLSX = os.environ.get("DARKZONE_RULES") or str(Path(__file__).resolve().parent.parent / "samples" / "rules_sample.xlsx")
 OUT = ROOT / "runner_test_out.txt"
 WORK = ROOT / "logs_test"
 

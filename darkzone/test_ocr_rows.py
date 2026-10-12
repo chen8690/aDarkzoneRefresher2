@@ -28,7 +28,7 @@ from .ui import (dialog_is_refresh, dialog_own_text, is_dialog, load_profile,
 
 ROOT = Path(__file__).resolve().parent.parent
 FIXTURE = ROOT / "samples" / "ocr_rows_rapid.json"
-RULES = os.environ.get("DARKZONE_RULES") or r"工作簿1.xlsx"
+RULES = os.environ.get("DARKZONE_RULES") or str(Path(__file__).resolve().parent.parent / "samples" / "rules_sample.xlsx")
 OUT_PATH = ROOT / "ocr_rows_test_out.txt"
 
 TOL_REFRESH = 8          # 两个引擎算出来的 ↻ 横坐标允许差多少像素

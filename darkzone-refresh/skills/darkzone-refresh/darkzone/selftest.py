@@ -5,13 +5,14 @@ from __future__ import annotations
 import json
 import os
 import sys
+from pathlib import Path
 
-sys.path.insert(0, str(__import__("pathlib").Path(__file__).resolve().parent.parent))
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from darkzone.rules import parse_workbook, validate  # noqa: E402
 from darkzone.ocr_match import extract_items  # noqa: E402
 
-XLSX = os.environ.get("DARKZONE_RULES") or r"工作簿1.xlsx"
+XLSX = os.environ.get("DARKZONE_RULES") or str(Path(__file__).resolve().parent.parent / "samples" / "rules_sample.xlsx")
 
 
 def main():

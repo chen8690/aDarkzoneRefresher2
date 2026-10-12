@@ -53,7 +53,8 @@ pip install -r requirements.txt
 无真机也能先验一遍「跑得起来」：
 
 ```powershell
-python -m darkzone.runner --image samples/live_detail.png --device 3200x1440 --rules rules_sample.xlsx
+python -m darkzone.runner --image "你的截图.png" --device 3200x1440 --rules rules_sample.xlsx
 ```
 
+仓库出于隐私考虑**不含真机截图**：`--image` 随便给一张 3200x1440 横屏截图即可。
 能看到三行装备 + 每行「是否在池内」+ 计划点击坐标，说明依赖齐了。再连真机先 dry-run、后 `--live`。

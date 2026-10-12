@@ -43,8 +43,9 @@ metadata:
 从本 skill 根目录执行（`profiles/default.json` 按包内相对路径解析，必须在 skill 内跑）：
 
 ```text
-# 1) 离线冒烟测试（无手机、不发 adb、不点击；用内置示例规则表 + 示例截图）
-python -m darkzone.runner --image samples/live_detail.png --device 3200x1440 --rules rules_sample.xlsx
+# 1) 离线冒烟测试（无手机、不发 adb、不点击；用内置示例规则表 + 你自己的一张 3200x1440 横屏截图）
+#    仓库出于隐私考虑不含真机截图；把任意一张截图放到下面路径即可
+python -m darkzone.runner --image "你的截图.png" --device 3200x1440 --rules rules_sample.xlsx
 
 # 2) 真机 dry-run（读手机屏幕、算坐标、打印计划；一次都不点）
 python -m darkzone.runner --rules "你的真实规则表.xlsx"

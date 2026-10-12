@@ -14,10 +14,20 @@ from darkzone.rules import parse_workbook              # noqa: E402
 from darkzone.ui import CoordMapper, load_profile, parse_screen  # noqa: E402
 from darkzone.win_ocr import ocr_lines                 # noqa: E402
 
-XLSX = os.environ.get("DARKZONE_RULES") or r"工作簿1.xlsx"
+XLSX = os.environ.get("DARKZONE_RULES") or str(Path(__file__).resolve().parent.parent / "samples" / "rules_sample.xlsx")
 SAMPLES = (Path(__file__).resolve().parent.parent / "samples")
 OUT = (Path(__file__).resolve().parent.parent / "ui_test_out.txt")
 DEVICE = (3200, 1440)          # 手机横屏真机像素（连上后用 wm size 核实）
+
+# 仓库出于隐私考虑不含真机截图；缺图就跳过，不要伪装成通过。
+_MISSING = [p for p in (SAMPLES / "screen1_refresh_boss.jpg",
+                        SAMPLES / "screen2_refresh_entries.jpg") if not p.exists()]
+if _MISSING:
+    print("SKIP darkzone.test_ui: 缺少真机标定截图")
+    for _p in _MISSING:
+        print(f"   - {_p}")
+    print("   把你自己抓的截图放到 samples/ 后重跑（文件名见模块 docstring）。")
+    sys.exit(0)
 
 buf = []
 fails = []

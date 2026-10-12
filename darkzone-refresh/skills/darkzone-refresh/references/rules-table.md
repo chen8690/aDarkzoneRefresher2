@@ -47,8 +47,8 @@
 
 - 用 Excel 打开 `rules_sample.xlsx` 直接增删行/列（保持结构：A=类别/排除、B=时机、C+=池）。
 - 或改 `scripts/make_sample_rules.py` 里的数据再重新生成：`python scripts/make_sample_rules.py`。
-- **跑之前用离线预演**先验一下规则表被正确解析：
-  `python -m darkzone.runner --image samples/live_detail.png --device 3200x1440 --rules <你的表.xlsx>`
+- **跑之前用离线预演**先验一下规则表被正确解析（`--image` 给任意一张 3200x1440 横屏截图）：
+  `python -m darkzone.runner --image <你的截图.png> --device 3200x1440 --rules <你的表.xlsx>`
   —— 它会把每个槽位读到的装备、对应池子、in_pool 判定都打印出来，一眼看出解析对不对。
 
 ## 标题列识别容差

@@ -10,10 +10,11 @@ OCR 识别详情页三行装备词条 → 不在规则池内就点该行 ↻ 刷
 ## 一句话跑通（无真机）
 
 ```powershell
-python -m darkzone.runner --image samples/live_detail.png --device 3200x1440 --rules rules_sample.xlsx
+python -m darkzone.runner --image "你的截图.png" --device 3200x1440 --rules rules_sample.xlsx
 ```
 
-会读样例截图、按样例规则表识别三行装备，打印每行「是否在池内 + 计划点击坐标」。不需要手机、不点击。
+会读那张截图、按内置示例规则表 `rules_sample.xlsx` 识别三行装备，打印每行「是否在池内 + 计划点击坐标」。不需要手机、不点击。
+（仓库出于隐私考虑**不含真机截图**，随便给一张 3200x1440 横屏截图即可跑通流程。）
 
 ## 真机跑
 

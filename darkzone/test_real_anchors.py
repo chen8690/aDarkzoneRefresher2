@@ -27,13 +27,26 @@ SAMPLE_LIST = ROOT / "samples" / "live_list.png"
 SAMPLE_DETAIL = ROOT / "samples" / "live_detail.png"
 SAMPLE_DETAIL_HDR = ROOT / "samples" / "live_detail_hdr.png"
 SAMPLE_DIALOG = ROOT / "samples" / "live_dialog.png"
-RULES = os.environ.get("DARKZONE_RULES") or r"工作簿1.xlsx"
+RULES = os.environ.get("DARKZONE_RULES") or str(Path(__file__).resolve().parent.parent / "samples" / "rules_sample.xlsx")
 OUT_PATH = ROOT / "real_anchor_test_out.txt"
 
 TOL_ICON = 12          # ↻ 图标：配置值 vs 像素实测
 TOL_BTN = 30           # 「选择」按钮：OCR 行中心 vs 橙色按钮像素中心
 TOL_DISPATCH = 70      # 「派遣」：OCR 行中心 vs 橙色按钮像素中心（按钮很宽，容差给大点）
 TOL_ROW_Y = 15         # 词条行：OCR 行中心 y vs ↻ 图标像素中心 y
+
+# 仓库出于隐私考虑不含真机截图；缺基准图就跳过，不要伪装成通过。
+_NEEDED = [SAMPLE_LIST, SAMPLE_DETAIL, SAMPLE_DETAIL_HDR, SAMPLE_DIALOG,
+           ROOT / "samples" / "stream_first_frame.jpg",
+           ROOT / "samples" / "stream_steady.jpg",
+           ROOT / "samples" / "gzip_detail_same_screen.jpg"]
+_MISSING = [p for p in _NEEDED if not p.exists()]
+if _MISSING:
+    print("SKIP darkzone.test_real_anchors: 缺少真机基准截图")
+    for _p in _MISSING:
+        print(f"   - {_p.relative_to(ROOT)}")
+    print("   把你自己抓的真机截图放到 samples/ 后重跑（文件名见模块 docstring）。")
+    sys.exit(0)
 
 LINES: list[str] = []
 FAILS: list[str] = []
